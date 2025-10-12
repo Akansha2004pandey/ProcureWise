@@ -2,11 +2,11 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 const app=express()
-import cors from "cors";
+
 
 const allowedOrigins = [
   "http://localhost:8080", // local dev
-  "https://procure-wise-new.vercel.app" // your deployed frontend
+  "https://procure-wise-new.vercel.app" 
 ];
 
 app.use(cors({
