@@ -3,7 +3,9 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 const app=express()
 app.use(cors({
-    origin:"https://procure-wise-new.vercel.app/",
+    origin:["https://procure-wise-new.vercel.app/",
+        "http://localhost:8080"],
+
     credentials:true
 
 }))
