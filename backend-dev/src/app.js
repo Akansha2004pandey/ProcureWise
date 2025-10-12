@@ -2,13 +2,24 @@ import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 const app=express()
+import cors from "cors";
+
+const allowedOrigins = [
+  "http://localhost:8080", // local dev
+  "https://procure-wise-new.vercel.app" // your deployed frontend
+];
+
 app.use(cors({
-    origin:["https://procure-wise-new.vercel.app/",
-        "http://localhost:8080"],
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true); // allow Postman / server-side
+    if (allowedOrigins.indexOf(origin) === -1) {
+      return callback(new Error("Not allowed by CORS"), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 
-    credentials:true
-
-}))
 
 //initially we had to use body parser
 
