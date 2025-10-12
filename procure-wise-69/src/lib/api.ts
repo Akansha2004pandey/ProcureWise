@@ -1,5 +1,5 @@
 // API configuration and helper functions
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000' || 'https://procurewise-1.onrender.com';
+const API_BASE_URL ='https://procurewise-1.onrender.com';
 
 export interface RFP {
   _id?: string;
