@@ -3,9 +3,10 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 const app=express()
 app.use(cors({
-    origin: "*"
-}));
+    origin:"https://procure-wise-six.vercel.app",
+    credentials:true
 
+}))
 
 //initially we had to use body parser
 
