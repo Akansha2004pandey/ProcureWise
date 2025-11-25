@@ -48,6 +48,7 @@ export const createRFP = async (rfp: Omit<RFP, '_id'>): Promise<RFP> => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(rfp),
+    credentials: "include",
   });
   if (!response.ok) throw new Error('Failed to create RFP');
   return response.json();
@@ -68,6 +69,7 @@ export const createQuotation = async (quotation: Omit<Quotation, '_id'>): Promis
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(quotation),
+    credentials: "include",
   });
   if (!response.ok) throw new Error('Failed to create quotation');
   return response.json();
@@ -86,6 +88,7 @@ export const auditContract = async (text: string): Promise<ContractAudit> => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text }),
+    credentials: "include",
   });
   if (!response.ok) throw new Error('Failed to audit contract');
   return response.json();
