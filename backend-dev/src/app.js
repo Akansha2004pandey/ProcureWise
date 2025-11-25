@@ -6,7 +6,9 @@ const app=express()
 
 const allowedOrigins = [
   "http://localhost:5173", // add your dev port(s) if needed
-  "https://procure-wise-new.vercel.app" 
+  "https://procure-wise-new.vercel.app" ,
+  "https://procure-wise-six.vercel.app"
+  
 ];
 
 app.use(cors({
