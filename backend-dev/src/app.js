@@ -5,17 +5,16 @@ const app=express()
 
 
 const allowedOrigins = [
-  "http://localhost:8080", // local dev
+  "http://localhost:5173", // add your dev port(s) if needed
   "https://procure-wise-new.vercel.app" 
 ];
 
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true); // allow Postman / server-side
-    if (allowedOrigins.indexOf(origin) === -1) {
-      return callback(new Error("Not allowed by CORS"), false);
-    }
-    return callback(null, true);
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow Postman / server-side if desired
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    console.warn('Blocked CORS origin:', origin);
+    return callback(null, false); // deny without throwing an Error
   },
   credentials: true
 }));
